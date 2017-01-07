@@ -292,7 +292,7 @@ class ssh_channel(sock):
     def getenv(self, variable, **kwargs):
         """Retrieve the address of an environment variable in the remote process.
         """
-        if not hasattr(self, 'argv'):
+        if not hasattr(self, 'argv') or self.argv == None:
             self.error("Can only call getenv() on ssh_channel objects created with ssh.process")
 
         argv0 = self.argv[0]
